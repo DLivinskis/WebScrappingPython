@@ -1,15 +1,19 @@
 from bs4 import BeautifulSoup #to parse HTML data
+import os
+import shutil
 import requests #to get HTML data
 import xlsxwriter #to save scrapped data to the excel spreadsheet
 from datetime import date #to get today's date which will be used in naming of the file
 import re #to get rid of text in price column
 from time import sleep
 
-
 today = date.today()
+current_path = str(os.getcwd()) + "\\" + str(today) + ".xlsx"
+
+
 print("Today's date:", today)
 
-products = {"lg+c1+48","lg+c1+55","lg+c1+65","lg+c1+77","lg+c1+83","lg+c2+42","lg+c2+48","lg+c2+55","lg+c2+65","lg+c2+77","lg+c1+83","samsung+qn90a+43","samsung+qn90a+50","samsung+qn90a+65","samsung+qn90a+75","samsung+qn90a+85"}
+products = {"rtx+3060","rtx+3070","rtx+3080+10","rtx+3090","rtx+4080","rtx+4090","rx+6700","rx+6800","rx+6900"}
 row = 1
 column = 0
 row1 = 1
@@ -19,7 +23,7 @@ column3 = 3
 nameOfWorkbook = str(today)+".xlsx"
 print(nameOfWorkbook)
 workbook = xlsxwriter.Workbook(nameOfWorkbook)
-delay = 10
+delay = 1
 #workbook = xlsxwriter.Workbook(r'W:\Coding\PythonProjects\data.xlsx')
 worksheet = workbook.add_worksheet()
 worksheet.write_row(0, 0, ['Name', 'Price','Query Name','Date of Extraction'])
@@ -33,8 +37,8 @@ for product in products:
     names = soup.findAll("h2", class_="item_name")
     #results = soup.find("div", class_="item_box_main")
     #print(results)
-    
-    
+
+
     for name in names:
         #print(name.text.strip(), end="\n"*2)
         #a = str(name.text.strip())
@@ -45,7 +49,7 @@ for product in products:
         sleep(delay)
         row += 1
 
-    
+
     prices = soup.findAll("div", class_="item_price")
     for price in prices:
         #print(price.text.strip(),end="\n"*2)
@@ -57,3 +61,5 @@ for product in products:
         row1 += 1
 
 workbook.close()
+shutil.move(current_path,f"W:\\Coding\\PythonProjects\\ScrappedData\\OneDrive\\Salidzini_scrapping")
+print("Data is extracted succesfully!")
