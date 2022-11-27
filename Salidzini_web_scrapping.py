@@ -13,7 +13,10 @@ current_path = str(os.getcwd()) + "\\" + str(today) + ".xlsx"
 
 print("Today's date:", today)
 
-products = {"rtx+3060","rtx+3070","rtx+3080+10","rtx+3090","rtx+4080","rtx+4090","rx+6700","rx+6800","rx+6900"}
+products = {"rtx+3060","rtx+3070","rtx+3080+10","rtx+3090","rtx+4080","rtx+4090","rx+6700","rx+6800","rx+6900",
+            "samsung+qn90b+43","samsung+qn90b+50","samsung+qn90b+55","samsung+qn90b+65","samsung+qn90b+75",
+            'lg+oled+c2+42','lg+oled+c2+48','lg+oled+c2+55','lg+oled+c2+65','lg+oled+c2+77'
+            }
 row = 1
 column = 0
 row1 = 1
