@@ -1,0 +1,7 @@
+Useful links and informatoin in regards to setting up SQl server:
+#################################################################
+Link to Microsoft SQL Server download page - https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+Link to SSMS (SQL Server Management Studio) - https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&view=sql-server-ver15
+Video about setting up the SQL server - https://www.youtube.com/watch?v=h0nxCDiD-zg
+#################################################################
+Need correct version of SSMS to create a table
