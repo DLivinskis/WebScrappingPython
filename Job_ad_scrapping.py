@@ -57,6 +57,9 @@ final_list = Get_All_Job_Ads(Number_Of_Jobs_CV_LV)
 df = pd.DataFrame(final_list)
 df = df.transpose()
 df.columns = ["Location",'Title','Link']
+df.insert(loc=3,
+               column='Date',
+               value=today)
 
 df.to_excel(nameOfWorkbook)
 shutil.move(current_path,f'W:\Coding\PythonProjects\ScrappedData\OneDrive\Jobs')
