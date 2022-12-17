@@ -25,9 +25,9 @@ def Get_GPU_Scores():
     GPU_Score = soup.find_all(class_="bar-score")
 
 
-    for name in GPU_Name[]:
+    for name in GPU_Name:
         GPU_Name_List.append(name.text)
-    for name in GPU_Score[::1]:
+    for name in GPU_Score[::2]:
         GPU_Score_List.append(name.text)
     final_list = [GPU_Name_List,GPU_Score_List]
     return final_list
@@ -38,6 +38,7 @@ final_list = Get_GPU_Scores()
 df = pd.DataFrame(final_list)
 df = df.transpose()
 df.columns = ["GPU",'Score']
+
 
 df.to_excel(nameOfWorkbook)
 try:
